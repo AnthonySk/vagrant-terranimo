@@ -1,16 +1,46 @@
 # Demo Vagrant - Application Terramino
 
-Projet de mise en avant d'une machine virtuelle via Vagrant avec provisionning pour executer l'application Terramino (demo educative via Docker de HashiCorp).
+Project to bring forward a virtual machine via Vagrant with provisioning to run the Terramino application (educational demo via HashiCorp's Docker).
 
 
-## 📦 Technologies utilisées
+## 📦 Technologies used
 
-- Vagrant : pour automatiser la création et le provisioning d'une machine virtuelle
-- VirtualBox : comme provider pour héberger la VM
-- Ubuntu 20.04 : système d’exploitation de la VM (via box `ubuntu/bionic64`)
-- Docker & Docker Compose : installés automatiquement dans la VM via un script fourni
-- Git : utilisé pour cloner le projet Terramino dans la VM
+- Vagrant : automatize creation & provisioning VM
+- VirtualBox : provider for host VM 
+- Ubuntu 24.04 : VM OS (via box `hashicorp-education/ubuntu-24-04`)
+- Docker & Docker Compose : Installed automatically in VM with script
+- Git : used for clone the Terramino project in VM
 
-## 🔧 Configuration automatqiue
+## 🔧 Automatically configuration
 
 via Vagrantfile :
+- Configure Ubuntu 24.04
+- redirect ports
+- Provisionning :
+	- Launch 'install-dependencies.sh'
+		- Install Docker
+		- Clone repo 'terramino-go'
+		- Create script 'reload-terramino '
+	- Launch terranimo automatically
+	- Create restart-terranimo command
+	- Create start-terranimo command
+	- Create reload-terramino command
+	
+## ▶ Launch VM
+
+Since root of project in bash : 
+- vagrant up
+
+Go the terranimo : 
+- Backend : http://localhost:8080
+- Frontend : http://localhost:8081
+
+## Manage VM
+
+- vagrant halt # shutdown
+- vagrant destroy # delete VM 
+
+
+
+
+![Vagrant](https://img.shields.io/badge/Vagrant-2.3+-blue?logo=vagrant)
